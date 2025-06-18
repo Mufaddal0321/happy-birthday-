@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amrutha's Birthday Messages</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #9D50BB, #6E48AA);
+      overflow-x: hidden;
+      text-align: center;
+      color: white;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      margin: 30px 0 10px;
+    }
+    #mainCake {
+      display: block;
+      margin: 0 auto;
+      width: 300px;
+      height: auto;
+      cursor: pointer;
+    }
+    .pastry {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      background: url('https://i.imgur.com/f9Qx9h8.png') no-repeat center/contain;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .message-card {
+      width: 90%;
+      max-width: 500px;
+      background: white;
+      color: black;
+      border-radius: 10px;
+      margin: 20px auto;
+      padding: 20px;
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    .sender {
+      font-weight: bold;
+      color: #6a1b9a;
+      margin-bottom: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Click the Cake 🎂</h1>
+   <img id="mainCake" src="https://i.imgur.com/HaTlt2I.png" alt="Birthday Cake">
+
+  <div id="pastryContainer"></div>
+  <script>
+    const messages = [
+      {
+        sender: "Fumenim",
+        text: `Happy Birthday, Amrutha! 💖 From the moment you stepped into my life, everything became brighter, softer, and filled with love. Your smile is my favorite sunrise, and your laughter is the music my heart loves the most. Today is all about you — the beautiful soul who brings magic into every moment. I’m so lucky to call you mine. Let’s make this birthday unforgettable, just like the way you’ve made my world unforgettable. 💫 I love you forever. 💝`
+      },
+      {
+        sender: "Vaishnavi",
+        text: `Heyyy oldy!! Happy happy birthday to you! I miss the time we didn’t need to discuss or plan before meeting we just knew we’d see each other. I have never said in so many words but you don’t know how much I cherish you and our memories!❤️ Let’s catch up soon !! Tell me a day before showing up this time .`
+      },
+      {
+        sender: "Nandini",
+        text: `Happiest Birthday Amrutha!! Wishing you Years Filled with Magical Moments and Endless Joy!!!`
+      },
+      {
+        sender: "Nikitha",
+        text: `Happy Birthday Amruthaa 🥳❤️ To the girl who’s made of giggles, stardust, and all things lovely! ✨ Wishing you a day full of magic, sparkles, cake, and everything that makes you as wonderfully adorable as you are! 🎈🍰 And ur smile is really cute so never let it fade awayyyy!!🫶🏻🫶🏻`
+      },
+      {
+        sender: "Mikhael",
+        text: `At 20, you’re officially too old to count your age on your fingers. In dog’s year, you are dead. But you are still here. How amazing is that? Anyways although I knew you only kinda like the end of our school years, it was and is still worthwhile to be with you. Now this sounds too formal but seriously love you lots and Happy birthday AMMU!!! WELCOME TO THE 20s…where absolutely nothing changes.🥰😍😜`
+      },
+      {
+        sender: "Skibidi",
+        text: `Happy Birthday to the tube-light of our gang 🎉💥 From playing skribble in 3rd sem to sitting in olives and pulling your legs, we've spent less time than your brain spends processing my jokes on you, yet it's memorable. Thanks for finding me annoying, something not many can do. Much memories to make in the upcoming year! Hope your day is surprisingly beautiful 🍻 . Stay awesome (and slightly tolerable). 🎉😈`
+      },
+      {
+        sender: "Zomato Boii",
+        text: `Hola sister! 😄 How you been doing, ma? Hope you’re enjoying your holidays to the fullest! From the very first day of engineering till now, you’ve been more than just a friend—you’ve truly been like a sister to me. I know we didn’t talk much in the first year (except during those labs 😅), but from the second year onward, we really got to know each other better. We’ve shared so many laughs, made endless jokes, and had some awesome memories with our little gang—me, you, Skanda, Arjun, and Yuktha. It may be a small group, but it’s such a special one. Thank you for being there for me, especially during the times I felt low or lost. Your support has meant a lot. I just want us all to continue making more memories together and have the best time as a gang. And I hope this sister-brother bond between us stays strong forever. ❤️ Wishing you the happiest birthday ever, sister! 🥳🎉 Have a blast and keep being the amazing person you are!.`
+      },
+      {
+        sender: "Yukta",
+        text: `From the very first day of college, when I met you, I had a feeling we were going to be good friends. But as I got to know you better and our conversations grew deeper, I realized how perfectly we vibe. I still remember the first Bootstrap Day, you wore that white “UNREAL” shirt. Even now, whenever I see you in it, it brings back memories of that day. From day one to our third year, we’ve had our ups and downs in this friendship. But one thing I want you to know is that I truly value my friendships and I don’t like to give up on friendships. Sitting next to you in class, gossiping about teachers, sharing jokes and random stuff — these little things have made my college days so much more fun. I really hope they’ve made yours better too. You’re one of the most practical minded people I know. Your confidence and boldness in everything you do is truly inspiring. Your fearless character genuinely makes you stand out in a crowd. You have dealt so much in this last year that I am truly truly amazed about the way you handled it. You deal with every challenge, and continue to do so, with so much ease which is amazing. I just want to say thank you. Thank you for being my friend. Thank you for staying by my side. Thank you for being my project partner, for supporting me, for clicking literally 10,000 amazing pictures of me, for all the laughter, for all the gossip, and for just being you. We have got one more year left in college, and I truly hope we continue like this and cherish this friendship for a lifetime.`
+      }
+    ];
+
+    const cake = document.getElementById("mainCake");
+    const container = document.getElementById("pastryContainer");
+
+    cake.addEventListener("click", () => {
+      cake.style.display = 'none';
+
+      messages.forEach((msg, index) => {
+        const pastry = document.createElement("div");
+        pastry.className = "pastry";
+        pastry.addEventListener("click", () => {
+          const existingCards = document.querySelectorAll(".message-card");
+          existingCards.forEach(c => c.remove());
+
+          const card = document.createElement("div");
+          card.className = "message-card";
+
+          const sender = document.createElement("div");
+          sender.className = "sender";
+          sender.textContent = msg.sender;
+
+          const text = document.createElement("div");
+          text.innerHTML = msg.text.replace(/\n/g, "<br>");
+
+          card.appendChild(sender);
+          card.appendChild(text);
+
+          document.body.appendChild(card);
+          card.style.display = "block";
+        });
+        container.appendChild(pastry);
+      });
+    });
+  </script>
+</body>
+</html>
